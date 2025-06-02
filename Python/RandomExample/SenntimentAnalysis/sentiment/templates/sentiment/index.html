@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="/static/sentiment/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="container">
+        <header>
+            <h1>Sentiment Analysis</h1>
+            <p>Uncover the emotions hidden in your words</p>
+        </header>
+        <main>
+            <div class="input-section">
+                <form id="sentimentForm">
+                    {% csrf_token %}
+                    <textarea id="inputText" placeholder="Type your thoughts here..." rows="5"></textarea>
+                    <button type="submit" id="analyzeBtn">Analyze Sentiment</button>
+                </form>
+                <div id="loadingSpinner" class="spinner hidden"></div>
+            </div>
+            <div class="result-section" id="resultSection">
+                <h2>Analysis Result</h2>
+                <div id="sentimentResult" class="sentiment-box">
+                    <span id="sentimentText">Enter text to see the sentiment</span>
+                    <span id="sentimentEmoji"></span>
+                    <span id="polarityScore"></span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/static/sentiment/js/script.js"></script>
+</body>
+</html>
